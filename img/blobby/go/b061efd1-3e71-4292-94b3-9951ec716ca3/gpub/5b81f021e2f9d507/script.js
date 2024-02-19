@@ -484,15 +484,7 @@ var radpack = (function () {
     S(t, e) {
       return new s((t, s) => {
         (e.resolve = t),
-          (e.reject = s),
-          a.head.appendChild(
-            n.assign(a.createElement("script"), {
-              crossOrigin: "Anonymous",
-              onerror: s,
-              src: e.url,
-              instance: this,
-            })
-          );
+          (e.reject = s)
       });
     }
     async D(t) {
