@@ -22,14 +22,6 @@ const backgroundObserver = new IntersectionObserver(
     },
     { rootMargin: "150px" }
   );
-document.addEventListener("DOMContentLoaded", function () {
-  document
-    .querySelectorAll("[data-lazyimg]")
-    .forEach((e) => imageObserver.observe(e)),
-    document
-      .querySelectorAll("[data-lazybg]")
-      .forEach((e) => backgroundObserver.observe(e.parentElement));
-});
 "undefined" === typeof _trfq && (window._trfq = []);
 "undefined" == typeof _trfd && (window._trfd = []);
 _trfd.push({
