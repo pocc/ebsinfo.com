@@ -71,26 +71,7 @@ function logTcclEvent(t, e) {
       ]);
     }
 }
-"undefined" != typeof window &&
-  "undefined" != typeof document &&
-  window.addEventListener("DOMContentLoaded", function () {
-    for (
-      var t = document.querySelectorAll("[data-tccl]"), e = 0;
-      e < t.length;
-      e++
-    )
-      try {
-        var n = t[e].getAttribute("data-tccl").split(",");
-        t[e].addEventListener(n[1], logTcclEvent);
-      } catch (t) {
-        window._trfq.push([
-          "cmdLogEvent",
-          "gc_published_site_error",
-          "tccl.published.add",
-          [["error", t.toString()]],
-        ]);
-      }
-  });
+
 var radpack = (function () {
   "use strict";
   const t = globalThis,
