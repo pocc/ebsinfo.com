@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Microscope icon in scientific colors -->
+  <rect width="64" height="64" fill="#2C5F2D"/>
+  <!-- Base -->
+  <rect x="20" y="52" width="24" height="4" fill="#D0D0D0"/>
+  <!-- Stand -->
+  <rect x="28" y="35" width="8" height="17" fill="#A0A0A0"/>
+  <!-- Body tube -->
+  <rect x="35" y="15" width="6" height="25" fill="#808080" transform="rotate(30 38 27)"/>
+  <!-- Eyepiece -->
+  <circle cx="45" cy="12" r="4" fill="#606060"/>
+  <!-- Objective lens -->
+  <circle cx="30" cy="40" r="3" fill="#404040"/>
+  <!-- Stage -->
+  <rect x="22" y="35" width="16" height="2" fill="#B0B0B0"/>
+</svg>
