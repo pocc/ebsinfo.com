@@ -11,8 +11,62 @@ const galleryImages = [
   { src: gallery2, alt: 'Microbial degradation of oil under microscope' },
   { src: gallery3, alt: 'Laboratory flask analysis with EBS samples' },
   { src: gallery4, alt: 'Field assessment and environmental surveying' },
-  { src: gallery5, alt: 'Environmental remediation site with treatment equipment' },
+  {
+    src: gallery5,
+    alt: 'Environmental remediation site with treatment equipment',
+  },
   { src: gallery6, alt: 'Pseudomonas microbe microscopy' },
+] as const
+
+const services = [
+  {
+    title: 'Forensic Subsurface and Ground Surface Contaminant Source Maps',
+    content:
+      'EBS provides forensic contaminant source maps for groundwater, soil, soil vapor, and indoor air sampling. Our work includes passive soil vapor surveys using EPA Method TO-17, forensic contaminant mapping, and reports compliant with Federal Rule 26(a)(2)(B) for expert testimony. We identify the timing, source, and extent of chemical releases through rigorous scientific analysis.',
+  },
+  {
+    title:
+      'Forensic Flood Water Studies, Sewer Leak Evaluations, Sewer Air Testing and Vapor Intrusion',
+    content:
+      'Our flood water toxics analysis includes PCR (polymerase chain reaction) testing and gas chromatography to identify contaminants. We conduct sewer air testing for volatile organic compounds (VOCs) and evaluate fecal bacteria concentrations near sewer outfalls. Vapor intrusion assessments determine the migration of subsurface vapors into indoor air.',
+  },
+  {
+    title: 'Forensic Outdoor Air, Indoor Air, and Odor Studies',
+    content:
+      'EBS performs source mapping for air quality investigations, including air permit compliance evaluations, particulate analysis, and qualitative odor measurements. We identify and characterize emission sources for both outdoor ambient air and indoor air quality concerns.',
+  },
+  {
+    title: 'Forensic Identification of Illicit Drug Labs and Haz-Waste Dumps',
+    content:
+      'We test for residues from P-2-P, Cocaine, Heroin, Methaqualone, Methamphetamine, PCP, and LSD manufacturing operations. At hazardous waste dump sites, we identify chemicals including benzene, toluene, vinyl chloride, and other volatile organic compounds that pose environmental and health risks.',
+  },
+  {
+    title: 'Forensic Indoor Air Sampling / Mold and Moisture Studies',
+    content:
+      'Our indoor air quality services cover vapor intrusion assessment, dust analysis, virus and bacteria testing, and mold and mildew evaluation. We use active and passive air testing methods, wipe and tape sampling, and test for lead-based paint and formaldehyde. Common indoor toxin sources include paints, solvents, wood preservatives, aerosol sprays, and cleaning products. We follow EPA guidance for mold assessment and remediation.',
+  },
+  {
+    title:
+      'Forensic Site Conceptual Models and Mitigation Plans / Fate of Chemicals',
+    content:
+      'EBS develops forensic site conceptual models that reconstruct the timeline of contamination events. Our mitigation plans incorporate remediation design strategies including extraction systems, in-situ chemical oxidation, bioremediation, and geochemical fixation to address the fate and transport of chemicals in the subsurface.',
+  },
+  {
+    title:
+      'Bench Tests and Feasibility Studies / Locating Historic Landfills',
+    content:
+      'We conduct bench-scale testing and feasibility studies for remediation technologies including Enhanced Aerobic and Anaerobic Bioremediation, Co-Metabolic Remediation, In-Situ Chemical Oxidation (ISCO), In-Situ Chemical Reduction (ISCR), Geochemical Stabilization, and Free Product Biosolvent Flushing. Our services also include locating and characterizing historic landfill sites.',
+  },
+  {
+    title: 'Forensic Sampling Near Fracking Operations',
+    content:
+      'EBS provides environmental sampling and monitoring methodology for areas near hydraulic fracturing operations, assessing potential impacts to groundwater, surface water, soil, and air quality.',
+  },
+  {
+    title: 'Forensic Microbial Analysis',
+    content:
+      'We perform forensic microbial identification and analysis to characterize biological communities in soil, groundwater, and air samples, supporting bioremediation feasibility assessments and contamination source investigations.',
+  },
 ] as const
 
 export function Home() {
@@ -27,7 +81,8 @@ export function Home() {
           <p className="mt-4 max-w-2xl text-lg text-gray-300">
             EBSinfo provides expert environmental science forensic studies to
             identify and mitigate sources of chemical and biological
-            contamination in the environment.
+            contamination in the environment. Innovative science-based solutions
+            since 1989.
           </p>
           <div className="mt-8 flex gap-4">
             <Link
@@ -47,15 +102,12 @@ export function Home() {
       </section>
 
       {/* Photo gallery */}
-      <section className="py-16 bg-gray-50">
+      <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-5xl px-6">
           <h2>Our Work</h2>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {galleryImages.map((img) => (
-              <div
-                key={img.alt}
-                className="overflow-hidden rounded-lg"
-              >
+              <div key={img.alt} className="overflow-hidden rounded-lg">
                 <img
                   src={img.src}
                   alt={img.alt}
@@ -68,31 +120,22 @@ export function Home() {
         </div>
       </section>
 
-      {/* Services overview */}
+      {/* Services — full content from legacy */}
       <section className="py-16">
         <div className="mx-auto max-w-5xl px-6">
           <h2>Our Services</h2>
-          <div className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {[
-              {
-                title: 'Environmental Forensics',
-                desc: 'Identifying sources and timing of chemical releases through scientific analysis.',
-              },
-              {
-                title: 'Contamination Assessment',
-                desc: 'Comprehensive evaluation of chemical and biological contamination in soil, water, and air.',
-              },
-              {
-                title: 'Expert Consultation',
-                desc: 'Litigation support and expert testimony for environmental cases.',
-              },
-            ].map((svc) => (
+          <div className="mt-10 space-y-10">
+            {services.map((svc) => (
               <div
                 key={svc.title}
-                className="rounded-lg border border-gray-200 p-6"
+                className="border-l-4 border-brand-green pl-6"
               >
-                <h3>{svc.title}</h3>
-                <p className="mt-2 text-sm text-gray-600">{svc.desc}</p>
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {svc.title}
+                </h3>
+                <p className="mt-3 text-gray-700 leading-relaxed">
+                  {svc.content}
+                </p>
               </div>
             ))}
           </div>
