@@ -1,4 +1,7 @@
 import headshot from '../assets/images/jim-jacobs-headshot.jpg'
+import aboutScientist from '../assets/images/about-scientist.jpg'
+import aboutFieldwork from '../assets/images/about-fieldwork.jpg'
+import geologyRock from '../assets/images/geology-rock.jpg'
 
 const benefits = [
   {
@@ -162,10 +165,30 @@ export function About() {
         </div>
       </section>
 
-      {/* Technical Presentations */}
+      {/* Science imagery */}
       <section className="bg-gray-50 py-16">
         <div className="mx-auto max-w-4xl px-6">
           <h2>Technical Presentations &amp; Papers</h2>
+          <div className="mt-6 mb-8 grid gap-4 sm:grid-cols-3">
+            <img
+              src={aboutScientist}
+              alt="Scientist examining samples through a microscope"
+              className="w-full rounded-lg object-cover"
+              loading="lazy"
+            />
+            <img
+              src={aboutFieldwork}
+              alt="Environmental remediation field workers in protective suits"
+              className="w-full rounded-lg object-cover"
+              loading="lazy"
+            />
+            <img
+              src={geologyRock}
+              alt="Geological rock formation in arid landscape"
+              className="w-full rounded-lg object-cover"
+              loading="lazy"
+            />
+          </div>
           <div className="mt-8 space-y-6">
             {presentations.map((p) => (
               <div key={p.title}>
