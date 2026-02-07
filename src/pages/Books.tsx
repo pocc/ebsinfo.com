@@ -1,4 +1,9 @@
 import headshot from '../assets/images/jim-jacobs-headshot.jpg'
+import bookCover1 from '../assets/images/book-cover-1.jpg'
+import bookCover2 from '../assets/images/book-cover-2.jpg'
+import bookCover3 from '../assets/images/book-cover-3.jpg'
+import bookCover4 from '../assets/images/book-cover-4.jpg'
+import bookCover5 from '../assets/images/book-cover-5.jpg'
 
 const books = [
   {
@@ -8,6 +13,7 @@ const books = [
     publisher: 'Wiley',
     year: 2019,
     pages: 576,
+    cover: bookCover1,
     description:
       'The authors include an overview of the historical development of hydraulic fracturing and the technology currently employed. The book also explores the risk, prevention, and mitigation factors that are associated with fracturing. The authors also include legal cases, regulatory issues, and data on the cost of recovery. The volume presents audit checklists for gathering critical information and documentation to support the reliability of the current environmental conditions related to fracking operations and the impact fracking can have on a community.',
   },
@@ -18,6 +24,7 @@ const books = [
     publisher: 'McGraw-Hill',
     year: 2014,
     pages: 578,
+    cover: bookCover2,
     description:
       'Oil Spills and Gas Leaks highlights the complex nature of assessment, exposure pathway analysis, sensitive receptor evaluation related to oil spills and gas leaks. The sampling methods and remediation of petroleum hydrocarbons are described, as well as the oil spill and gas leak behavior, and environmental impact mitigation. The book discusses engineering techniques; long-term biological and environmental effects; litigation and cost recovery, and legislation in overlapping jurisdictions.',
   },
@@ -28,6 +35,7 @@ const books = [
     publisher: 'Wiley',
     year: 2014,
     pages: 520,
+    cover: bookCover3,
     description:
       'Featuring contributions from a variety of authors, this book explores the biogeochemistry of acid mine drainage, rock drainage, and acid sulfate soils. It describes how to predict, prevent, and remediate the environmental impact of acid drainage and the oxidation of sulfides, offering sampling and analytical methods. Jacobs co-authored 18 of the 36 chapters. Readers will discover new approaches for recovering valuable resources from acid mine drainage, including bioleaching.',
   },
@@ -37,6 +45,7 @@ const books = [
     publisher: 'CRC Press',
     year: 2004,
     pages: 800,
+    cover: bookCover4,
     description:
       'Put together by a team of scientists, engineers, regulators, and lawyers, Chromium(VI) Handbook consolidates the latest literature on this topic. The broad scope of this book fills the need for a comprehensive resource on hexavalent chromium, improving understanding of this contaminant at a time when the extent and degree of the problem is still being assessed. It addresses naturally occurring and anthropogenic sources, geology and geochemistry, toxicity, treatment, regulatory issues and legal cases, and recommendations.',
   },
@@ -46,6 +55,7 @@ const books = [
     publisher: 'CRC Press',
     year: 2001,
     pages: 264,
+    cover: bookCover5,
     description:
       'As one of the first books written about MTBE, the volume was written by a team of scientists, engineers, and toxicologists. The book examines MTBE as a technical solution designed to reduce air emissions from vehicles and focuses on the health effects of MTBE caused by drinking contaminated surface or groundwater. The book addresses the areas of mapping, selected concepts for remediation of soil and groundwater, and environmental risk assessment, including coverage of dermal sorption by bathing or washing in MTBE-contaminated water.',
   },
@@ -82,22 +92,27 @@ export function Books() {
         </p>
 
         {/* Book list */}
-        <div className="mt-12 space-y-10">
+        <div className="mt-12 space-y-12">
           {books.map((book) => (
-            <article
-              key={book.title}
-              className="border-l-4 border-brand-green pl-6"
-            >
-              <h3 className="text-lg font-semibold text-gray-900">
-                {book.title}
-              </h3>
-              <p className="mt-1 text-sm text-gray-500">
-                {book.authors} &mdash; {book.publisher}, {book.year},{' '}
-                {book.pages} pages
-              </p>
-              <p className="mt-3 text-gray-700 leading-relaxed">
-                {book.description}
-              </p>
+            <article key={book.title} className="space-y-4">
+              <img
+                src={book.cover}
+                alt={book.title}
+                className="w-full rounded-lg object-cover"
+                loading="lazy"
+              />
+              <div className="border-l-4 border-brand-green pl-6">
+                <h3 className="text-lg font-semibold text-gray-900">
+                  {book.title}
+                </h3>
+                <p className="mt-1 text-sm text-gray-500">
+                  {book.authors} &mdash; {book.publisher}, {book.year},{' '}
+                  {book.pages} pages
+                </p>
+                <p className="mt-3 text-gray-700 leading-relaxed">
+                  {book.description}
+                </p>
+              </div>
             </article>
           ))}
         </div>
