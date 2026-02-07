@@ -89,3 +89,5 @@ ebsinfo.com/
 ├── package.json
 └── wrangler.toml             # Cloudflare Pages config
 ```
+
+- Do not include 'Co-Authored-By' trailers or any AI attribution in git commit messages.
