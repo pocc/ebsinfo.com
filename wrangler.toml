@@ -17,3 +17,7 @@ compatibility_date = "2024-12-01"
 # binding = "DB"
 # database_name = "ebsinfo"
 # database_id = "<your-d1-database-id>"
+
+[observability.logs]
+enabled = true
+invocation_logs = true
