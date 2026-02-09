@@ -153,7 +153,11 @@ export function Home() {
             {services.map((svc) => (
               <div key={svc.title}>
                 {'image' in svc && svc.image && (
-                  <div className="mb-4 grid gap-4 sm:grid-cols-2">
+                  <div
+                    className={`mb-4 grid gap-4 ${
+                      'secondImage' in svc ? 'sm:grid-cols-2' : ''
+                    }`}
+                  >
                     <img
                       src={svc.image}
                       alt={svc.imageAlt}

@@ -94,11 +94,11 @@ export function Books() {
         {/* Book list */}
         <div className="mt-12 space-y-12">
           {books.map((book) => (
-            <article key={book.title} className="space-y-4">
+            <article key={book.title} className="flex flex-col gap-6 sm:flex-row">
               <img
                 src={book.cover}
                 alt={book.title}
-                className="w-full rounded-lg object-cover"
+                className="h-64 w-44 shrink-0 rounded-lg object-cover"
                 loading="lazy"
               />
               <div className="border-l-4 border-brand-green pl-6">

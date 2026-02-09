@@ -33,7 +33,7 @@ export function Contact() {
               <form onSubmit={handleSubmit} className="mt-6 space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium">
-                    Name
+                    Name *
                   </label>
                   <input
                     id="name"
@@ -60,7 +60,7 @@ export function Contact() {
                     htmlFor="message"
                     className="block text-sm font-medium"
                   >
-                    Message
+                    Message *
                   </label>
                   <textarea
                     id="message"
