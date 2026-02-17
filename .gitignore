@@ -4,30 +4,26 @@ node_modules/
 # Build output
 dist/
 
-# Environment
+# Environment / secrets
 .env
 .env.local
 .env.*.local
 .dev.vars
 
-# Editor
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS
-.DS_Store
-Thumbs.db
-
 # TypeScript build artifacts
 *.tsbuildinfo
-*.d.ts
-!src/vite-env.d.ts
 
 # Vite
 *.local
 
 # Wrangler
 .wrangler/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+*.swp
+*.swo

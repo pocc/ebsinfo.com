@@ -2,11 +2,33 @@ import { type FormEvent, useState } from 'react'
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState('')
+  const [sending, setSending] = useState(false)
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
-    // TODO: Wire up to Pages Function at /api/contact
-    setSubmitted(true)
+    setError('')
+    setSending(true)
+    const form = e.currentTarget
+    const data = {
+      name: (form.elements.namedItem('name') as HTMLInputElement).value,
+      email: (form.elements.namedItem('email') as HTMLInputElement).value,
+      message: (form.elements.namedItem('message') as HTMLTextAreaElement).value,
+    }
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/geojimj@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...data, _subject: `Contact form: ${data.name}`, _replyto: data.email }),
+      })
+      const result = ((await res.json()) as { success: string })
+      if (result.success !== 'true') throw new Error('Send failed')
+      setSubmitted(true)
+    } catch {
+      setError('Something went wrong. Please try again or call us directly.')
+    } finally {
+      setSending(false)
+    }
   }
 
   return (
@@ -70,11 +92,15 @@ export function Contact() {
                     className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-brand-green focus:outline-none focus:ring-1 focus:ring-brand-green"
                   />
                 </div>
+                {error && (
+                  <p className="text-sm text-red-600">{error}</p>
+                )}
                 <button
                   type="submit"
-                  className="rounded-md bg-brand-green px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-green-700"
+                  disabled={sending}
+                  className="rounded-md bg-brand-green px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-green-700 disabled:opacity-50"
                 >
-                  Send
+                  {sending ? 'Sending…' : 'Send'}
                 </button>
               </form>
             )}
